@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media App</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            background-image: url('https://images.unsplash.com/photo-1496096265110-f83ad7f96608?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+
+        /* Custom animation */
+        .animated-bg {
+            animation: animatedBackground 20s ease infinite alternate;
+        }
+
+        /* Adjust padding and margin for images */
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Adjust padding and margin for sections */
+        section {
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Navbar styles */
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-80">
+    <!-- Navbar -->
+    <nav class="bg-gray-600 p-4  w-full" >
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-white text-2xl font-bold">Social Media App</a>
+            <div class="flex space-x-4">
+                <a onclick="scrollToSection('video-call-section')"   class="text-white nav-link">Video Call</a>
+                <a onclick="scrollToSection('chat-section')"   class="text-white nav-link">Chat</a>
+                <a onclick="scrollToSection('ai-section')"  class="text-white nav-link">AI Technology</a>
+                <a onclick="scrollToSection('translation-section')"  class="text-white nav-link">Translation</a>
+                <a href="/categories"  class="text-white nav-link">Categories</a>
+                <a href="/FingerSpelling"  class="text-white nav-link">Finger spelling</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-10 mb-10">
+        <h1 class="text-white text-4xl font-semibold text-center mb-8 animate__animated animate__bounceIn">Welcome to Our Social Media App!</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Video Call Section -->
+            <div id="video-call-section" class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md animate__animated animate__fadeInLeft">
+                <h2 class="text-2xl font-semibold mb-4">Start a Video Call</h2>
+                <img src="{{ url_for('static', filename='images/video-call.png') }}" alt="Video Call" class="w-32 h-32 mb-4 animate__animated animate__fadeInDown">
+                <p class="text-gray-700 text-center animate__animated animate__fadeInUp">Connect with your friends and family through video calls.</p>
+                <a href="/video_call" class="mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-110 animate__animated animate__fadeIn">Start Video Call</a>
+            </div>
+            <!-- Chat Section -->
+            <div id="chat-section" class="flex flex-col items-center bg-white p-6 rounded-lg shadow-md animate__animated animate__fadeInRight">
+                <h2 class="text-2xl font-semibold mb-4">Open Chat</h2>
+                <img src="{{ url_for('static', filename='images/live-chat.png') }}" alt="Chat" class="w-32 h-32 mb-4 animate__animated animate__fadeInDown">
+                <p class="text-gray-700 text-center animate__animated animate__fadeInUp">Stay connected with your friends and share messages instantly.</p>
+                <a href="/chat" class="mt-6 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-110 animate__animated animate__fadeIn">Open Chat</a>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- AI Technology Section -->
+    <section id="ai-section" class="bg-gray-100 py-12">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-6 md:mb-0">
+                    <img src="https://bicontent.businessinsurance.com/97c14ec5-699b-482a-9604-0f4785bb9e35.jpg" alt="AI Technology" class="w-full rounded-lg shadow-md animate__animated animate__fadeInLeft">
+                </div>
+                <div class="md:w-1/2 md:ml-6">
+                    <h2 class="text-3xl font-semibold mb-4 animate__animated animate__fadeIn">AI Technology</h2>
+                    <p class="text-lg text-gray-700 animate__animated animate__fadeIn">Our social media platform leverages advanced AI technology to enhance user experience. From personalized content recommendations to intelligent sentiment analysis, our AI algorithms are constantly learning and adapting to provide you with the best possible experience.</p>
+                    <p class="text-lg text-gray-700 animate__animated animate__fadeIn">With our AI-powered features, you can discover relevant content tailored to your interests, engage with like-minded individuals, and stay informed about the latest trends and topics in your social network.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Language Translation Section -->
+    <section id="translation-section" class="bg-gray-200 py-12">
+        <div class="container mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-6 md:mb-0">
+                    <img src="https://miro.medium.com/v2/resize:fit:1330/0*tStVWACzIp_Jf00_" alt="Sign Language Translation" class="w-full rounded-lg shadow-md animate__animated animate__fadeInRight">
+                </div>
+                <div class="md:w-1/2 md:ml-6">
+                    <h2 class="text-3xl font-semibold mb-4 animate__animated animate__fadeIn">Sign Language Translation</h2>
+                    <p class="text-lg text-gray-700 animate__animated animate__fadeIn">Break language barriers with our built-in sign language translation feature. Our platform utilizes cutting-edge technology to translate sign language into text and vice versa, making communication accessible to everyone, regardless of their hearing abilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-4 text-center text-white">
+        <p>&copy; 2024 Social Media App. All rights reserved.</p>
+    </footer>
+
+    <!-- Flow Buttons -->
+    <div class="fixed bottom-10 right-10 z-10">
+        <button onclick="scrollToSection('video-call-section')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-110">Video Call</button>
+        <button onclick="scrollToSection('chat-section')" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-110">Chat</button>
+        <button onclick="scrollToSection('ai-section')" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-110">AI Technology</button>
+        <button onclick="scrollToSection('translation-section')" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out transform hover:scale-110">Translation</button>
+    </div>
+
+    <!-- Include script to activate Animate.css -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
+    <!-- Script for scrolling to sections -->
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+
+</html>

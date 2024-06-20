@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Call and Gesture Recognition</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        #videoContainer {
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 60px; /* Additional padding to make space for the buttons */
+        }
+
+        #videoFeed {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #buttonContainer {
+            position: absolute;
+            width: 100%;
+            bottom: 0px; /* Adjust this value to move the buttons further down */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .action-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .end-button {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .refresh-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <nav class="bg-blue-500 text-white p-4 flex justify-between items-center">
+        <div>
+            <a href="http://localhost:5173/" class="text-xl font-semibold"><i class="bi bi-house-fill"></i> Home</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-10">
+        <div id="videoContainer" class="w-full bg-gray-200 rounded-lg p-4 mb-6 animate_animated animate_fadeInRight">
+            <img id="videoFeed" class="rounded-lg" src="/video_feed" alt="Video Feed">
+            <div id="prediction" class="text-xl text-red-500 mt-2"><span id="predictedText"></span></div>
+            <div id="buttonContainer">
+                <button id="backButton" class="action-button end-button" type="submit" onclick="goBack()">End Video</button>
+                <button id="refreshButton" class="action-button refresh-button" type="submit" onclick="refreshPage()">New Sentence</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.location.href = "http://localhost:5173/";
+        }
+
+        function refreshPage() {
+            window.location.reload();
+        }
+
+        var source = new EventSource('/video_feed');
+        source.addEventListener('message', function (event) {
+            var data = event.data;
+            var predictedCharacter = data.trim();
+            setTimeout(function () {
+                document.getElementById('predictedText').textContent += predictedCharacter;
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>

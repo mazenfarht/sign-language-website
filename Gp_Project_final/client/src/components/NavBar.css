@@ -1,0 +1,35 @@
+.nav-link {
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    transform: translateY(-2px);
+  }
+  
+  .bg-gray-600 {
+    background-color: #4b5563;
+  }
+  
+  .text-white {
+    color: #ffffff;
+  }
+  
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+  
+  .font-bold {
+    font-weight: 700;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .space-x-4 > *:not(:last-child) {
+    margin-right: 1rem;
+  }
+  
+  .text-warning {
+    color: #ffc107;
+  }

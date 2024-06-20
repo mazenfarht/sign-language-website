@@ -1,0 +1,139 @@
+/* AdminDashboard.css */
+
+.admin-dashboard {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .admin-dashboard h1 {
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    font-weight: 300;
+  }
+  
+  .admin-dashboard form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .admin-dashboard form div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .admin-dashboard label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #495057;
+  }
+  
+  .admin-dashboard input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .admin-dashboard input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .admin-dashboard button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .admin-dashboard button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-dashboard input[type="text"]::placeholder {
+    color: #6c757d;
+  }
+  
+  .admin-dashboard h2 {
+    color: #343a40;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 2em;
+    font-weight: 300;
+  }
+  
+  .admin-dashboard ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .admin-dashboard li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    border-bottom: 1px solid #ced4da;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .admin-dashboard li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-dashboard li button {
+    background-color: #dc3545;
+    padding: 7px 12px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .admin-dashboard li button:hover {
+    background-color: #c82333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-dashboard .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .admin-dashboard .search-bar input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .admin-dashboard .search-bar input:focus {
+    border-color: #007bff;
+    outline: none;
+  }

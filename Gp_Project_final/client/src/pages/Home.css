@@ -1,0 +1,211 @@
+/* Home.css */
+body {
+  background-image: url('https://images.unsplash.com/photo-1496096265110-f83ad7f96608?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  margin: 0;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.text-gray-700 {
+  color: #4a4a4a;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.bg-blue-500 {
+  background-color: #4299e1;
+}
+
+.hover\:bg-blue-700:hover {
+  background-color: #2b6cb0;
+}
+
+.bg-green-500 {
+  background-color: #48bb78;
+}
+
+.hover\:bg-green-700:hover {
+  background-color: #2f855a;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.transition {
+  transition: all 0.3s ease;
+}
+
+.duration-300 {
+  transition-duration: 0.3s;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transform {
+  transform: translateY(-2px);
+}
+
+.hover\:scale-110:hover {
+  transform: scale(1.10);
+}
+
+.animate__animated {
+  animation: animate__animated;
+}
+
+.animate__bounceIn {
+  animation-name: bounceIn;
+}
+
+.animate__fadeInLeft {
+  animation-name: fadeInLeft;
+}
+
+.animate__fadeInRight {
+  animation-name: fadeInRight;
+}
+
+.animate__fadeInDown {
+  animation-name: fadeInDown;
+}
+
+.animate__fadeInUp {
+  animation-name: fadeInUp;
+}
+
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.half-width-img {
+  width: 50%; /* Make the image 50% of the section width */
+  height: auto;
+  margin-bottom: 0.75rem; /* Reduce margin below the image */
+}
+
+.half-size-img {
+  width: 95%; /* Make the image half its original size */
+}
+
+.section {
+  padding: 1rem; /* Reduce padding */
+}
+
+.rounded-section {
+  border-radius: 0.5rem; /* Add border radius */
+  margin-top: 2rem; /* Lower the section */
+}
+
+.centered-btn {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  width: 100%; /* Ensure the flex container takes full width */
+  margin-top: 0.5rem; /* Reduce margin above the button */
+}
+
+.container {
+  max-width: 1200px; /* Limit the max width of the container */
+  margin: 0 auto; /* Center the container */
+  padding: 0 1rem; /* Add horizontal padding */
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.md\:flex-row {
+  flex-direction: row;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-0 {
+  margin-bottom: 0;
+}
+
+.md\:w-1\/2 {
+  width: 50%;
+}
+
+.md\:ml-6 {
+  margin-left: 1.5rem;
+}
+
+.py-12 {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.bg-gray-100 {
+  background-color: #f7fafc;
+}
+
+.bg-gray-200 {
+  background-color: #edf2f7;
+}
+
+.bg-gray-800 {
+  background-color: #2d3748;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}

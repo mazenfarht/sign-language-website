@@ -1,0 +1,79 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f4f6f9;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+  
+  .alphabet {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+  }
+  
+  .well {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    color: #333;
+  }
+  
+  .alphabet-letter-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .alphabet-letter-list .letter-item {
+    margin-bottom: 10px;
+  }
+  
+  .alphabet-letter-list .letter-item .letter-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .alphabet-letter-list .letter-item .letter-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .alphabet-letter-list .letter-item.active .letter-button {
+    background-color: #0056b3;
+  }
+  
+  .alphabet-letter-video video {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .alphabet-letter-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  

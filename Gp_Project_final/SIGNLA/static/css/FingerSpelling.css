@@ -1,0 +1,155 @@
+.alphabet {
+    background-color: #fff; /* Grey background color */
+    padding: 20px; /* Add some padding for spacing */
+  }
+  
+  .letter-container {
+    background-color: #f2f2f2; /* White background color for the letter container */
+    padding: 10px; /* Add some padding for spacing */
+    border-radius: 4px; /* Add rounded corners to the container */
+  }
+  
+  .letter {
+    font-size: 24px; /* Adjust the font size for the letter */
+    font-weight: bold; /* Make the letter bold */
+  }
+  
+  /* FingerSpelling.css */
+  
+  .row.alphabet {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+  }
+  
+  .col-md-6 {
+    text-align: center;
+  }
+  
+  .letter-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .letter-info {
+    text-align: left;
+    padding-right: 2rem;
+  }
+  
+  .letter-video {
+    flex: 1;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+  }
+  
+  .well {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #555;
+  }
+  
+  .alphabet-letter-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .alphabet-letter-list li {
+    margin-bottom: 1rem;
+  }
+  
+  .alphabet-letter-list li a {
+    display: block;
+    padding: 0.5rem;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border-radius: 3px;
+  }
+  
+  .alphabet-letter-list li a:hover {
+    background-color: #e9e9e9;
+  }
+  
+  .alphabet-letter-video video {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .letter-item {
+    display: flex; /* Allow elements to sit side-by-side */
+    align-items:center; /* Vertically align letter and video */
+  }
+  
+  .letter {
+    margin-right: 400px; /* Add spacing between letter and video */
+  }
+  
+  
+  .magic-background {
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    color: #F8F8F2; /* Light font for visibility against dark background */
+}
+/* Navbar styling */
+nav {
+    animation: fadeInDown; /* From Animate.css */
+    animation-duration: 1s;
+}
+/* Font styling */
+h1, h3 {
+    font-family: 'Cinzel', serif; /* Adds a touch of old-time magic */
+    text-shadow: 1px 1px 2px black; /* Enhancing text readability */
+}
+/* Button styling */
+button {
+    background-color: #7f53ac; /* Magical purple */
+    background-image: linear-gradient(315deg, #7f53ac 0%, #647dee 74%);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+button:hover {
+    transform: translateY(-3px);
+    background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+}
+/* Content box styling */
+.well {
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent for layered depth */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+/* List styling */
+.alphabet-letter-list li {
+    animation: fadeInLeft; /* From Animate.css */
+    animation-duration: 0.5s;
+    margin-bottom: 2rem;
+}
+/* Video wrapper styling */
+.video-wrapper {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    animation: zoomIn; /* From Animate.css */
+    animation-duration: 0.6s;
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* Custom styles */
+        #chatDisplay {
+            height: 60vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: rgba(155, 155, 155, 0.5) rgba(255, 255, 255, 0.1);
+        }
+
+        /* Style scrollbar for Firefox */
+        #chatDisplay::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #chatDisplay::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        #chatDisplay::-webkit-scrollbar-thumb {
+            background-color: rgba(155, 155, 155, 0.5);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-500 text-white p-4 flex justify-between items-center">
+        <div>
+            <i style="font-size: larger;" class="bi bi-house-fill"></i>
+
+            <a href="/Home" class="text-xl font-semibold">Home
+                
+            </a>
+        </div>
+        <div>
+            <span class="mr-4">Logged in as <strong id="loggedInUserName"></strong>  <i style="font-size: large;font-weight: bold;" class="bi bi-person-fill"></i></span>
+            <button onclick="logout()" class="text-white hover:text-gray-200 focus:outline-none focus:text-gray-200">
+                <i style="font-size: larger;" class="bi bi-box-arrow-right"></i> Log Out
+            </button>
+        </div>
+    </nav>
+
+    <div class="container mx-auto mt-10">
+        <div class="flex">
+            <!-- Navigation Sidebar -->
+            <div class="w-1/4 bg-white p-4 rounded-lg shadow-md animate__animated animate__fadeInLeft">
+                <h2 class="text-2xl font-semibold mb-4">Users</h2>
+                <ul id="userList">
+                    <!-- User list will be populated dynamically -->
+                </ul>
+            </div>
+            <!-- Chat Section -->
+            <div
+                class="w-3/4 ml-4 bg-white rounded-lg shadow-md p-4 mb-6 overflow-y-auto animate__animated animate__fadeInRight">
+                <!-- Chat Header with Contact Name -->
+                <h1 id="contactName" class="text-3xl font-semibold mb-6">Select a user to chat with</h1>
+                <!-- Chat Display Area -->
+                <div id="chatDisplay" class="bg-gray-200 rounded-lg p-4 mb-6">
+                    <!-- Chat Messages -->
+                </div>
+                <!-- Chat Input Area -->
+                <div class="flex justify-center">
+                    <textarea id="chatInput" class="w-96 h-16 border rounded-lg p-2 resize-none"></textarea>
+                    <button id="sendBtn"
+                        class="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-110"
+                        onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include script to handle message sending and display -->
+    <script>
+        var loggedInUser = localStorage.getItem('loggedInUser');
+        var userList = JSON.parse(localStorage.getItem('users')) || [];
+
+        if (!loggedInUser) {
+            window.location.href = 'login.html';
+        }
+
+        // Populate user list
+        function populateUserList() {
+            var userListElement = document.getElementById('userList');
+            userListElement.innerHTML = '';
+            userList.forEach(function (user) {
+                if (user.username !== loggedInUser) {
+                    var li = document.createElement('li');
+                    li.textContent = user.username;
+                    li.classList.add('py-2', 'hover:bg-gray-100', 'cursor-pointer');
+                    li.onclick = function () {
+                        selectUser(user.username);
+                    };
+                    userListElement.appendChild(li);
+                }
+            });
+        }
+
+        // Function to select a user
+        function selectUser(username) {
+            document.getElementById('contactName').textContent = 'Chat with ' + username;
+            loadMessages(username);
+        }
+
+        // Function to handle sending messages
+        function sendMessage() {
+            var selectedUser = document.getElementById('contactName').textContent.replace('Chat with ', '');
+            var message = document.getElementById('chatInput').value;
+            appendMessage( loggedInUser,selectedUser, message);
+            saveMessage(selectedUser, message);
+            document.getElementById('chatInput').value = '';
+            scrollChatDisplayToBottom();
+        }
+
+        // Function to append messages to chat display
+        function appendMessage(sender, receiver, message) {
+            var chatDisplay = document.getElementById('chatDisplay');
+            var messageElement = document.createElement('div');
+            messageElement.classList.add('flex', 'mb-2');
+            if (sender === loggedInUser) {
+                messageElement.classList.add('justify-end');
+            }
+            var messageContent = `
+        <div class="mr-2">
+            <div class="${sender === loggedInUser ? 'bg-blue-500 text-white' : 'bg-gray-200'} rounded-lg p-2">
+                <p class="text-sm">${sender === loggedInUser ? 'You' : sender}: ${message}</p>
+            </div>
+            <p class="text-xs text-gray-500 ${sender === loggedInUser ? 'text-right' : ''}">Now</p>
+        </div>`;
+            messageElement.innerHTML = messageContent;
+            chatDisplay.appendChild(messageElement);
+            chatDisplay.scrollTop = chatDisplay.scrollHeight;
+        }
+
+        // Function to save message to localStorage
+        // Function to save message to localStorage for both sender and receiver
+        function saveMessage(receiver, message) {
+            var senderMessages = JSON.parse(localStorage.getItem(loggedInUser)) || [];
+            senderMessages.push({ sender: loggedInUser, receiver: receiver, message: message });
+            localStorage.setItem(loggedInUser, JSON.stringify(senderMessages));
+
+            var receiverMessages = JSON.parse(localStorage.getItem(receiver)) || [];
+            receiverMessages.push({ sender: loggedInUser, receiver: receiver, message: message });
+            localStorage.setItem(receiver, JSON.stringify(receiverMessages));
+        }
+
+        // Function to load messages from localStorage
+        // Function to load messages from localStorage based on sender's username
+        function loadMessages(sender) {
+            var messages = JSON.parse(localStorage.getItem(sender)) || [];
+            var chatDisplay = document.getElementById('chatDisplay');
+            chatDisplay.innerHTML = '';
+            messages.forEach(function (msg) {
+                appendMessage( msg.sender,msg.receiver, msg.message);
+            });
+            scrollChatDisplayToBottom();
+        }
+
+        // Function to scroll chat display to bottom with animation
+        function scrollChatDisplayToBottom() {
+            var chatDisplay = document.getElementById('chatDisplay');
+            chatDisplay.scrollTop = chatDisplay.scrollHeight;
+        }
+
+        // Function to logout
+        function logout() {
+            localStorage.removeItem('loggedInUser');
+            window.location.href = '/login';
+        }
+
+        // Display logged-in user's name
+        document.getElementById('loggedInUserName').textContent = loggedInUser;
+
+        // Call populateUserList on page load
+        populateUserList();
+    </script>
+
+</body>
+
+</html>

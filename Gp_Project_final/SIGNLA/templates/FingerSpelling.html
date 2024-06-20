@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Library</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Include Animate.css for animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/FingerSpelling.css') }}">
+</head>
+<body class="magic-background">
+    <nav class="bg-blue-500 text-white p-4 flex justify-between items-center">
+        <div>
+            <i style="font-size: larger;" class="bi bi-house-fill"></i>
+
+            <a href="/Home" class="text-xl font-semibold">Home
+                
+            </a>
+        </div>
+        <div>
+            <span class="mr-4">Logged in as <strong id="loggedInUserName"></strong>  <i style="font-size: large;font-weight: bold;" class="bi bi-person-fill"></i></span>
+            <button onclick="logout()" class="text-white hover:text-gray-200 focus:outline-none focus:text-gray-200">
+                <i style="font-size: larger;" class="bi bi-box-arrow-right"></i> Log Out
+            </button>
+        </div>
+    </nav>
+    <h1 style="font-size: xx-large;" class="text-center m-4">
+        Finger Spelling
+    </h1>
+    <div class="row alphabet">
+        <div class="col-md-6">
+            <h1>ASL Hand Alphabet</h1>
+            <div id="alphabet-letters" class="well">
+                <h3>Letters</h3>
+                <div class="letter-container">
+                    <ul class="alphabet-letter-list">
+                        {% for video in videos2 %}
+                        <li class="letter-item">
+                            <form action="/FingerSpelling" method="post">
+                                <input type="hidden" name="selected_letter" value="{{ video.letter }}">
+                                <button type="submit" class="letter">{{ video.letter }}</button>
+                            </form>
+                            {% if selected_video and selected_video.letter == video.letter %}
+                            <div class="video-wrapper">
+                                <video src="{{ selected_video.link }}" title="ASL letter {{ video.letter }}" controls class="letter-video"></video>
+                            </div>
+                            {% endif %}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
